@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReportNextLevel - Panduan Transformasi Laporan Zakat</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi Warna Khusus IZI -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        izi: {
+                            green: '#98cc33',    /* C:44 M:00 Y:99 K:00 */
+                            greenHover: '#87b52d', 
+                            gray: '#808080',     /* C:00 M:00 Y:00 K:50 */
+                            darkgray: '#4d4d4d', /* C:00 M:00 Y:00 K:70 */
+                            white: '#ffffff',    /* C:00 M:00 Y:00 K:00 */
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #808080; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4d4d4d; }
+
+        /* Scroll Offset untuk Sticky Nav */
+        html { scroll-padding-top: 100px; }
+
+        /* Animasi Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 font-sans text-izi-darkgray antialiased relative overflow-x-hidden">
+
+    <!-- Background Decorative Blobs -->
+    <div class="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-izi-green opacity-10 rounded-full mix-blend-multiply filter blur-2xl animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-izi-gray opacity-10 rounded-full mix-blend-multiply filter blur-2xl animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-izi-green opacity-10 rounded-full mix-blend-multiply filter blur-2xl animate-blob animation-delay-4000"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-gray-200 px-6 py-4 flex flex-wrap justify-between items-center shadow-sm">
+        <div class="flex items-center gap-3">
+            <div class="bg-gradient-to-br from-izi-green to-izi-greenHover p-2 rounded-xl text-izi-white shadow-lg shadow-izi-green/30">
+                <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+            </div>
+            <h1 class="text-2xl font-black tracking-tighter text-izi-darkgray">Report<span class="text-izi-green">NextLevel</span></h1>
+        </div>
+        <div class="flex gap-2 bg-gray-100/80 p-1.5 rounded-full mt-4 md:mt-0 overflow-x-auto border border-gray-200 backdrop-blur-sm">
+            <a href="#paradigma" class="nav-link px-5 py-2 rounded-full text-sm font-bold transition-all bg-izi-white text-izi-green shadow-sm whitespace-nowrap" data-target="paradigma">
+                Paradigma
+            </a>
+            <a href="#panduan" class="nav-link px-5 py-2 rounded-full text-sm font-bold transition-all text-izi-gray hover:text-izi-darkgray whitespace-nowrap" data-target="panduan">
+                Panduan
+            </a>
+            <a href="#model" class="nav-link px-5 py-2 rounded-full text-sm font-bold transition-all text-izi-gray hover:text-izi-darkgray whitespace-nowrap" data-target="model">
+                Struktur Laporan
+            </a>
+            <a href="#roadmap" class="nav-link px-5 py-2 rounded-full text-sm font-bold transition-all text-izi-gray hover:text-izi-darkgray whitespace-nowrap" data-target="roadmap">
+                Roadmap
+            </a>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+        
+        <!-- ================= SECTION 1: PARADIGMA ================= -->
+        <section id="paradigma" class="min-h-[80vh] flex flex-col justify-center max-w-6xl mx-auto px-6 py-20 section-watch">
+            <div class="text-center max-w-4xl mx-auto reveal">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-izi-green/10 text-izi-green font-bold text-sm mb-6 border border-izi-green/20">
+                    <i data-lucide="zap" class="w-4 h-4"></i> Transformasi 2024-2025
+                </div>
+                <h2 class="text-5xl md:text-6xl font-black mb-6 text-izi-darkgray leading-tight tracking-tight">Dari Akuntabilitas Visual<br>Menuju <span class="text-transparent bg-clip-text bg-gradient-to-r from-izi-green to-emerald-600">Dampak Nyata</span></h2>
+                <p class="text-izi-gray text-xl md:text-2xl font-light leading-relaxed max-w-3xl mx-auto">
+                    Donor modern tidak lagi sekadar melihat foto senyuman. Mereka menuntut bukti logis perubahan struktur kesejahteraan mustahik berbasis data.
+                </p>
+
+                <!-- Disclaimer Riset Kredibilitas -->
+                <div class="mt-8 inline-flex flex-col sm:flex-row items-center gap-4 bg-white/60 backdrop-blur-sm border border-gray-200 px-6 py-4 rounded-2xl shadow-sm">
+                    <div class="flex -space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-50 border-2 border-white flex items-center justify-center text-izi-gray shadow-sm"><i data-lucide="globe" class="w-5 h-5"></i></div>
+                        <div class="w-10 h-10 rounded-full bg-gray-50 border-2 border-white flex items-center justify-center text-izi-gray shadow-sm"><i data-lucide="landmark" class="w-5 h-5"></i></div>
+                        <div class="w-10 h-10 rounded-full bg-izi-green border-2 border-white flex items-center justify-center text-white shadow-sm"><i data-lucide="check-check" class="w-5 h-5"></i></div>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-sm font-black text-izi-darkgray">Berbasis Riset Komparatif Global</p>
+                        <p class="text-xs text-izi-gray font-medium mt-0.5">Disintesis dari praktik terbaik (<i>best practice</i>) NGO Internasional, Badan PBB, & Lembaga Filantropi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mt-16 reveal">
+                <!-- Model Lama -->
+                <div class="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl shadow-gray-200/50 transition-all hover:-translate-y-2 hover:shadow-2xl duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-2 h-full bg-izi-gray opacity-20 group-hover:opacity-50 transition-opacity"></div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="bg-gray-100 p-4 rounded-2xl text-izi-gray">
+                            <i data-lucide="camera" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black text-izi-darkgray">Model Lama</h3>
+                            <p class="text-sm font-semibold text-izi-gray tracking-widest uppercase mt-1">Visual-Based</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-5">
+                        <li class="flex gap-4 text-izi-gray items-start">
+                            <div class="bg-gray-100 p-1 rounded mt-0.5"><i data-lucide="x" class="w-4 h-4 text-gray-500"></i></div>
+                            <span>Fokus utama pada foto serah terima bantuan simbolis.</span>
+                        </li>
+                        <li class="flex gap-4 text-izi-gray items-start">
+                            <div class="bg-gray-100 p-1 rounded mt-0.5"><i data-lucide="x" class="w-4 h-4 text-gray-500"></i></div>
+                            <span>Laporan hanya mencantumkan "output" (jumlah paket/orang yang dibantu).</span>
+                        </li>
+                    </ul>
+                    <div class="mt-10 pt-6 border-t border-gray-100 flex items-center gap-3 text-izi-gray font-bold">
+                        <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                        <span>Risiko: Krisis Kepercayaan (Trust Gap)</span>
+                    </div>
+                </div>
+
+                <!-- Model Baru -->
+                <div class="bg-gradient-to-br from-izi-darkgray to-gray-800 p-8 rounded-[2rem] shadow-2xl shadow-izi-darkgray/30 transition-all hover:-translate-y-2 hover:shadow-izi-green/20 duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-izi-green opacity-20 rounded-bl-full group-hover:scale-150 transition-transform duration-700"></div>
+                    <div class="flex items-center gap-4 mb-8 relative z-10">
+                        <div class="bg-izi-green p-4 rounded-2xl text-white shadow-lg shadow-izi-green/40">
+                            <i data-lucide="trending-up" class="w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-black text-white">Model Baru</h3>
+                            <p class="text-sm font-semibold text-izi-green tracking-widest uppercase mt-1">Impact-Based</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-5 relative z-10">
+                        <li class="flex gap-4 text-gray-300 items-start">
+                            <div class="bg-izi-green/20 p-1 rounded mt-0.5"><i data-lucide="check" class="w-4 h-4 text-izi-green"></i></div>
+                            <span>Fokus pada "Outcome" (perubahan perilaku & kemandirian ekonomi).</span>
+                        </li>
+                        <li class="flex gap-4 text-gray-300 items-start">
+                            <div class="bg-izi-green/20 p-1 rounded mt-0.5"><i data-lucide="check" class="w-4 h-4 text-izi-green"></i></div>
+                            <span>Visualisasi data melalui dashboard & infografis interaktif.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-10 pt-6 border-t border-gray-700 flex items-center gap-3 text-izi-green font-bold relative z-10">
+                        <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                        <span>Peluang: Loyalitas Donor Jangka Panjang</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+
+        <!-- ================= SECTION 2: PANDUAN DIVISI ================= -->
+        <section id="panduan" class="max-w-6xl mx-auto px-6 py-24 section-watch">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12 reveal">
+                <div>
+                    <h2 class="text-4xl font-black text-izi-darkgray tracking-tight">Panduan Teknis Operasional</h2>
+                    <p class="text-izi-gray mt-3 text-lg">Instruksi fungsional lintas divisi untuk mewujudkan Laporan Berbasis Dampak.</p>
+                </div>
+                <div class="bg-izi-white px-5 py-3 rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 font-bold text-izi-darkgray">
+                    <i data-lucide="users" class="w-5 h-5 text-izi-green"></i> Sinergi 3 Pilar
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 reveal">
+                <!-- Tim Program -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg shadow-gray-200/40 hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 bg-izi-darkgray text-white rounded-2xl flex items-center justify-center mb-6 shadow-md shadow-izi-darkgray/20">
+                        <i data-lucide="settings" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-black text-xl text-izi-darkgray mb-4">Tim Pelaksana Program</h3>
+                    <ul class="space-y-4">
+                        <!-- PERBAIKAN: Seluruh teks dibungkus <span> agar tata letak tidak berantakan -->
+                        <li class="flex gap-3 text-sm text-izi-gray leading-relaxed items-start">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-izi-green flex-shrink-0 mt-0.5"></i>
+                            <span>Kumpulkan <strong>Baseline Data</strong> sebelum program jalan.</span>
+                        </li>
+                        <li class="flex gap-3 text-sm text-izi-gray leading-relaxed items-start">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-izi-green flex-shrink-0 mt-0.5"></i>
+                            <span>Dokumentasi foto fokus pada <em>proses kegiatan</em>, bukan seremonial.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tim M&E -->
+                <div class="bg-izi-green rounded-3xl p-8 shadow-xl shadow-izi-green/30 hover:-translate-y-1 transition-all text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-bl-full"></div>
+                    <div class="w-14 h-14 bg-white text-izi-green rounded-2xl flex items-center justify-center mb-6 shadow-md relative z-10">
+                        <i data-lucide="target" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-black text-xl mb-4 relative z-10">Tim Monitoring & Eval</h3>
+                    <ul class="space-y-4 relative z-10">
+                        <!-- PERBAIKAN: Seluruh teks dibungkus <span> agar tata letak tidak berantakan -->
+                        <li class="flex gap-3 text-sm text-white/90 leading-relaxed items-start">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-white flex-shrink-0 mt-0.5"></i>
+                            <span>Susun <strong>Theory of Change (ToC)</strong> untuk program unggulan.</span>
+                        </li>
+                        <li class="flex gap-3 text-sm text-white/90 leading-relaxed items-start">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-white flex-shrink-0 mt-0.5"></i>
+                            <span>Tentukan KPI berbasis Outcome (perubahan hidup), bukan sekadar Output.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tim Marcomm -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 shadow-lg shadow-gray-200/40 hover:-translate-y-1 transition-all">
+                    <div class="w-14 h-14 bg-gray-100 text-izi-gray rounded-2xl flex items-center justify-center mb-6 border border-gray-200">
+                        <i data-lucide="megaphone" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="font-black text-xl text-izi-darkgray mb-4">Tim MarComm</h3>
+                    <ul class="space-y-4">
+                        <!-- PERBAIKAN: Seluruh teks dibungkus <span> agar tata letak tidak berantakan -->
+                        <li class="flex gap-3 text-sm text-izi-gray leading-relaxed items-start">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-izi-green flex-shrink-0 mt-0.5"></i>
+                            <span>Ubah angka statistik menjadi <strong>'Impact Storytelling'</strong>.</span>
+                        </li>
+                        <li class="flex gap-3 text-sm text-izi-gray leading-relaxed items-start">
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-izi-green flex-shrink-0 mt-0.5"></i>
+                            <span>Jaga porsi laporan ideal: 40% Visual & 60% Data Terukur.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Matriks Tabel -->
+            <div class="mt-12 bg-white border border-gray-100 p-8 rounded-3xl shadow-xl shadow-gray-200/50 reveal">
+                <h3 class="text-xl font-black text-izi-darkgray mb-6 flex items-center gap-3">
+                    <div class="p-2 bg-izi-green/10 rounded-lg text-izi-green"><i data-lucide="layout-grid" class="w-6 h-6"></i></div>
+                    Matriks Indikator (Contoh)
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm whitespace-nowrap md:whitespace-normal">
+                        <thead>
+                            <tr class="border-b-2 border-izi-green">
+                                <th class="pb-4 pt-2 px-4 font-bold text-izi-darkgray uppercase tracking-wider text-xs">Sektor</th>
+                                <th class="pb-4 pt-2 px-4 font-bold text-izi-gray uppercase tracking-wider text-xs">Output (Aktivitas)</th>
+                                <th class="pb-4 pt-2 px-4 font-bold text-izi-green uppercase tracking-wider text-xs">Outcome (Perubahan)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="py-5 px-4 font-bold text-izi-darkgray flex items-center gap-2"><i data-lucide="store" class="w-4 h-4 text-izi-gray"></i> Ekonomi</td>
+                                <td class="py-5 px-4 text-izi-gray">Jumlah modal disalurkan</td>
+                                <td class="py-5 px-4 text-izi-green font-bold bg-izi-green/5 rounded-lg w-max inline-block mt-3 md:mt-0 md:w-full">% Peningkatan Omzet</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="py-5 px-4 font-bold text-izi-darkgray flex items-center gap-2"><i data-lucide="graduation-cap" class="w-4 h-4 text-izi-gray"></i> Pendidikan</td>
+                                <td class="py-5 px-4 text-izi-gray">Jumlah beasiswa diberikan</td>
+                                <td class="py-5 px-4 text-izi-green font-bold bg-izi-green/5 rounded-lg w-max inline-block mt-3 md:mt-0 md:w-full">Peningkatan nilai akademis</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+
+        <!-- ================= SECTION 3: MODEL LAPORAN ================= -->
+        <section id="model" class="bg-gray-100/50 py-24 section-watch">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                    <h2 class="text-4xl font-black text-izi-darkgray mb-4 tracking-tight">Struktur Laporan "Next-Level"</h2>
+                    <p class="text-izi-gray text-lg">Formula menyusun narasi laporan dengan rasio <strong>40% Visual & 60% Analisis Data</strong>.</p>
+                </div>
+
+                <!-- Flow Structure - Zigzag Layout -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 reveal">
+                    <div class="bg-white p-6 rounded-3xl border-b-4 border-izi-darkgray shadow-md hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-gray-200 mb-2">01</div>
+                        <h4 class="font-black text-izi-darkgray text-lg mb-2">Executive Summary</h4>
+                        <p class="text-sm text-izi-gray leading-relaxed">Highlight capaian utama & metrik kunci dalam 1 halaman.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border-b-4 border-izi-gray shadow-md hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-gray-200 mb-2">02</div>
+                        <h4 class="font-black text-izi-darkgray text-lg mb-2">Baseline Data</h4>
+                        <p class="text-sm text-izi-gray leading-relaxed">Paparan realita masalah sosial di awal program (Before).</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border-b-4 border-izi-green shadow-md hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-izi-green/20 mb-2">03</div>
+                        <h4 class="font-black text-izi-darkgray text-lg mb-2">Theory of Change</h4>
+                        <p class="text-sm text-izi-gray leading-relaxed">Alur logika intervensi: bagaimana dana menyelesaikan masalah.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border-b-4 border-izi-green shadow-md hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-izi-green/20 mb-2">04</div>
+                        <h4 class="font-black text-izi-darkgray text-lg mb-2">Impact Dashboard</h4>
+                        <p class="text-sm text-izi-gray leading-relaxed">Visualisasi grafik, chart, dan persentase perubahan (Outcome).</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border-b-4 border-izi-gray shadow-md hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-gray-200 mb-2">05</div>
+                        <h4 class="font-black text-izi-darkgray text-lg mb-2">Story of Change</h4>
+                        <p class="text-sm text-izi-gray leading-relaxed">Testimoni mendalam berbasis bukti, bukan sekadar ucapan terima kasih.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-3xl border-b-4 border-izi-darkgray shadow-md hover:-translate-y-2 transition-transform">
+                        <div class="text-4xl font-black text-gray-200 mb-2">06</div>
+                        <h4 class="font-black text-izi-darkgray text-lg mb-2">Financial Transp.</h4>
+                        <p class="text-sm text-izi-gray leading-relaxed">Rincian Cost per Beneficiary (biaya per penerima manfaat).</p>
+                    </div>
+                </div>
+
+                <!-- Mockup Dashboard -->
+                <div class="bg-izi-darkgray text-white p-10 md:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden reveal">
+                    <!-- Background Pattern -->
+                    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#98cc33 2px, transparent 2px); background-size: 30px 30px;"></div>
+                    <div class="absolute -right-20 -top-20 bg-izi-green w-80 h-80 rounded-full blur-[100px] opacity-40"></div>
+                    
+                    <div class="relative z-10 flex flex-col lg:flex-row items-center gap-12">
+                        <div class="flex-1 w-full lg:w-auto">
+                            <h3 class="text-3xl font-black mb-4 tracking-tight">Data Speaks Louder</h3>
+                            <!-- PERBAIKAN: Teks yang lebih tepat sasaran tanpa membingungkan -->
+                            <p class="text-gray-300 mb-8 leading-relaxed">Gunakan visualisasi data interaktif. Tonjolkan indikator keberhasilan dan metrik perubahan kualitas hidup agar donatur langsung memahami dampak nyata dari program.</p>
+                            
+                            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-2xl w-full">
+                                <div class="flex justify-between text-xs mb-3 text-gray-300 font-bold tracking-widest uppercase">
+                                    <span>Serapan Anggaran</span>
+                                    <span class="text-izi-green text-sm">92%</span>
+                                </div>
+                                <div class="w-full bg-black/40 h-3 rounded-full overflow-hidden">
+                                    <div class="bg-izi-green h-full w-[92%] rounded-full relative">
+                                        <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 grid grid-cols-2 gap-4 w-full">
+                            <div class="bg-black/30 backdrop-blur-sm border border-white/10 p-6 rounded-3xl hover:bg-black/40 transition-colors flex flex-col justify-center">
+                                <div class="text-3xl md:text-4xl font-black text-white mb-1">Rp 12,4M</div>
+                                <div class="text-xs text-gray-400 font-bold uppercase tracking-widest">Social Return</div>
+                            </div>
+                            <div class="bg-izi-green/20 backdrop-blur-sm border border-izi-green/40 p-6 rounded-3xl hover:bg-izi-green/30 transition-colors flex flex-col justify-center">
+                                <div class="text-3xl md:text-4xl font-black text-izi-green mb-1">+45%</div>
+                                <div class="text-xs text-izi-green/70 font-bold uppercase tracking-widest">Income Mustahik</div>
+                            </div>
+                            <div class="col-span-2 mt-4">
+                                <!-- PERBAIKAN: Mengganti tombol Unduh menjadi tombol Link ke Web Corsec IZI -->
+                                <a href="https://corsec-izi.github.io/riset-kdz2025/" target="_blank" rel="noopener noreferrer" class="w-full bg-izi-green text-white py-4 rounded-2xl font-black md:text-lg text-base hover:bg-izi-greenHover transition-all shadow-lg shadow-izi-green/40 flex items-center justify-center gap-2 hover:-translate-y-1 text-center px-4">
+                                    <i data-lucide="external-link" class="w-6 h-6 flex-shrink-0"></i>
+                                    <span>Contoh Laporan Kaji Dampak</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 4: ROADMAP ================= -->
+        <section id="roadmap" class="max-w-6xl mx-auto px-6 py-24 section-watch">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-4xl font-black text-izi-darkgray mb-4 tracking-tight">Roadmap 3 Tahun</h2>
+                <p class="text-izi-gray text-lg">Tahapan realistis memajukan standar pelaporan IZI menuju level global.</p>
+            </div>
+
+            <div class="relative max-w-3xl mx-auto reveal">
+                <!-- Garis Vertikal Tengah -->
+                <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-izi-green via-gray-300 to-transparent -translate-x-1/2 rounded-full"></div>
+
+                <div class="space-y-12">
+                    <!-- Tahun 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+                        <div class="md:w-5/12 ml-16 md:ml-0 md:text-right w-[calc(100%-4rem)]">
+                            <h4 class="text-2xl font-black text-izi-darkgray">Tahun 1</h4>
+                            <p class="font-bold text-izi-green mt-1">Penataan Data & Kultur</p>
+                            <p class="text-izi-gray mt-3 text-sm leading-relaxed bg-white md:bg-transparent p-4 md:p-0 rounded-xl shadow-sm md:shadow-none border md:border-none border-gray-100">Standardisasi pengumpulan Baseline Data di seluruh cabang. Digitalisasi form survei lapangan.</p>
+                        </div>
+                        <div class="absolute left-8 md:left-1/2 w-6 h-6 bg-white border-4 border-izi-green rounded-full -translate-x-1/2 shadow-lg group-hover:scale-150 transition-transform duration-300"></div>
+                        <div class="md:w-5/12 hidden md:block"></div>
+                    </div>
+
+                    <!-- Tahun 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+                        <div class="md:w-5/12 hidden md:block"></div>
+                        <div class="absolute left-8 md:left-1/2 w-6 h-6 bg-white border-4 border-gray-400 rounded-full -translate-x-1/2 shadow-lg group-hover:scale-150 group-hover:border-izi-green transition-all duration-300"></div>
+                        <div class="md:w-5/12 ml-16 md:ml-0 md:text-left w-[calc(100%-4rem)]">
+                            <h4 class="text-2xl font-black text-izi-darkgray">Tahun 2</h4>
+                            <p class="font-bold text-izi-gray mt-1">Pengukuran Dampak & ToC</p>
+                            <p class="text-izi-gray mt-3 text-sm leading-relaxed bg-white md:bg-transparent p-4 md:p-0 rounded-xl shadow-sm md:shadow-none border md:border-none border-gray-100">Adopsi Theory of Change. Laporan program dipisahkan menjadi Annual Impact Report khusus.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tahun 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center md:justify-between group">
+                        <div class="md:w-5/12 ml-16 md:ml-0 md:text-right w-[calc(100%-4rem)]">
+                            <h4 class="text-2xl font-black text-izi-darkgray">Tahun 3</h4>
+                            <p class="font-bold text-izi-gray mt-1">Global Benchmark</p>
+                            <p class="text-izi-gray mt-3 text-sm leading-relaxed bg-white md:bg-transparent p-4 md:p-0 rounded-xl shadow-sm md:shadow-none border md:border-none border-gray-100">Integrasi portal donor real-time. Penerapan analisis komprehensif SROI standar NGO Internasional.</p>
+                        </div>
+                        <div class="absolute left-8 md:left-1/2 w-6 h-6 bg-white border-4 border-gray-400 rounded-full -translate-x-1/2 shadow-lg group-hover:scale-150 group-hover:border-izi-green transition-all duration-300"></div>
+                        <div class="md:w-5/12 hidden md:block"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-10 px-6 relative z-10 mt-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-6 h-6 text-izi-green"></i>
+                <span class="font-black text-xl text-izi-darkgray tracking-tight">Report<span class="text-izi-green">NextLevel</span></span>
+            </div>
+            <p class="text-sm text-izi-gray text-center font-medium">
+                Inisiatif Zakat Indonesia © 2025<br>
+                <span class="text-xs font-normal">Membangun Kepercayaan Umat melalui Jejak Dampak Nyata.</span>
+            </p>
+            <button class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-izi-darkgray hover:bg-izi-green hover:text-white transition-colors" onclick="window.scrollTo(0,0)">
+                <i data-lucide="arrow-up" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Inisialisasi ikon Lucide
+        lucide.createIcons();
+
+        // SCROLL SPY: Mengubah status menu navigasi saat di-scroll
+        const sections = document.querySelectorAll('.section-watch');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                // Offset untuk memicu pergantian menu sedikit sebelum mencapai top layar
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('bg-izi-white', 'text-izi-green', 'shadow-sm');
+                link.classList.add('text-izi-gray');
+                
+                if (link.getAttribute('data-target') === current) {
+                    link.classList.remove('text-izi-gray');
+                    link.classList.add('bg-izi-white', 'text-izi-green', 'shadow-sm');
+                }
+            });
+        });
+
+        // SCROLL REVEAL ANIMATION: Memunculkan elemen saat terlihat di layar
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1, // Berjalan saat 10% elemen terlihat
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
